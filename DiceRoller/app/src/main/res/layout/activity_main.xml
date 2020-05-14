@@ -32,6 +32,14 @@
         tools:src="@drawable/dice_1"
         app:srcCompat="@drawable/empty_dice" />
 
+    <ImageView
+        android:id="@+id/dice_image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        tools:src="@drawable/dice_1"
+        app:srcCompat="@drawable/empty_dice" />
+
     <Button
             android:id="@+id/roll_button"
             android:layout_width="wrap_content"
