@@ -1,43 +1,16 @@
-Dice Roller - Solution Code
-===========================
+# Build your first app
 
-Solution code for Android Kotlin Fundamentals Codelab 1.2: Get Started
+### Android Jetpack:
 
-Introduction
-------------
+- Android Jetpack is a collection of libraries, developed by Google, that offers backward-compatible classes and helpful functions for supporting older versions of Android. Jetpack replaces and expands on the set of libraries formerly known as the Android Support Library.
+- Classes imported from the `androidx` package refer to the Jetpack libraries. Dependencies to Jetpack in your `build.gradle` file also start with `androidx`.
 
-DiceRoller demonstrates simple interactivity in an Android app.
-It contains one button that updates a text view with a random
-value between 1 and 6.
+### Backward compatibility for vector drawables:
 
-Pre-requisites
---------------
+- Vector drawables are only natively supported in versions of Android higher than API 21. In older versions, Gradle generates PNG images for those drawables when your app is built.
+- You can specify that the Android Support Library should be used for vector drawables in older API versions with the `vectorDrawables.useSupportLibrary = true` configuration parameter in the `build.gradle` file.
+- Once you've enabled the support library for vector drawables, use the `app:srcCompat` attribute in the `` element (instead of `android:src`) to specify the vector drawable source for that image.
 
-You need to know:
-- How to open, build, and run apps with Android Studio.
+### The `app` namespace:
 
-
-Getting Started
----------------
-
-1. Download and run the app.
-
-License
--------
-
-Copyright 2018 Google, Inc.
-
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements.  See the NOTICE file distributed with this work for
-additional information regarding copyright ownership.  The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License.  You may obtain a copy of
-the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
-License for the specific language governing permissions and limitations under
-the License.
+- The `app` namespace in your XML layout file is for attributes that come from either your custom code or from libraries, not from the core Android framework.
