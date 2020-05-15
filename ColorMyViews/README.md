@@ -54,3 +54,8 @@ There are three chains styles:
 
   ![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-constraint-layout/img/91ca5b204a0141ed.png)
 
+## Baseline constraint
+
+The baseline constraint aligns the baseline of a view's text with the baseline of another view's text. Aligning views that contain text can be a challenge, especially if the fonts are differently sized. Baseline constraint does the alignment work for you.
+
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-constraint-layout/img/7eca5c45d4b85a9.png)
