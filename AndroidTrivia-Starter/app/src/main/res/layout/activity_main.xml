@@ -27,8 +27,10 @@
                  Use com.example.android.navigation.TitleFragment for the android:name
                  Use match_parent for the layout_height and layout_width -->
             <fragment
-                android:id="@+id/titleFragment"
-                android:name="com.example.android.navigation.TitleFragment"
+                android:id="@+id/myNavHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:navGraph="@navigation/navigation"
+                app:defaultNavHost="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
