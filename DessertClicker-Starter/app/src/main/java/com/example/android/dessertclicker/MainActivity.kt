@@ -27,6 +27,10 @@ import androidx.databinding.DataBindingUtil
 import com.example.android.dessertclicker.databinding.ActivityMainBinding
 import timber.log.Timber
 
+const val KEY_REVENUE = "revenue_key"
+const val KEY_DESSERT_SOLD = "dessert_sold_key"
+const val KEY_TIMER_SECONDS = "timer_seconds_key"
+
 class MainActivity : AppCompatActivity() {
 
     private var revenue = 0
@@ -77,6 +81,13 @@ class MainActivity : AppCompatActivity() {
 
         dessertTimer = DessertTimer(this.lifecycle)
 
+        savedInstanceState?.let {
+            revenue = it.getInt(KEY_REVENUE, 0)
+            dessertsSold = it.getInt(KEY_DESSERT_SOLD, 0)
+            dessertTimer.secondsCount = it.getInt(KEY_TIMER_SECONDS, 0)
+            showCurrentDessert()
+        }
+
         // Set the TextViews to the right values
         binding.revenue = revenue
         binding.amountSold = dessertsSold
@@ -103,6 +114,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Timber.i("onStop Called")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        Timber.i("onSaveInstanceState Called")
+
+        outState?.putInt(KEY_REVENUE, revenue)
+        outState?.putInt(KEY_DESSERT_SOLD, dessertsSold)
+        outState?.putInt(KEY_TIMER_SECONDS, dessertTimer.secondsCount)
     }
 
     override fun onDestroy() {

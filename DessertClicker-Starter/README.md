@@ -5,6 +5,8 @@ Summary
 
 ![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-lifecycles-logging/img/f6b25a71cec4e401.png)
 
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-complex-lifecycle/img/c259ab6beca0ca88.png)
+
 ![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-lifecycles-logging/img/dfde69e6a42d54b3.png)
 
 - `onAttach()`: Called when the fragment is associated with its owner activity.
@@ -33,3 +35,8 @@ Summary
 ### onPause()
 
 > Whatever code runs in `onPause()` blocks other things from displaying, so keep the code in `onPause()` lightweight. For example, if a phone call comes in, the code in `onPause()` may delay the incoming-call notification.
+
+### Add ADB to execution path
+
+https://developer.android.com/courses/extras/utilities
+
