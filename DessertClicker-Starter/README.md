@@ -45,4 +45,3 @@ https://developer.android.com/courses/extras/utilities
 ```
 adb shell am kill com.example.android.dessertclicker
 ```
-
