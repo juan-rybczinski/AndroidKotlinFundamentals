@@ -40,3 +40,7 @@ Initialize the `ViewModel`, using the [`ViewModelProviders.of()`](https://develo
 ![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/img/86c9c22e398e0642.png)
 
 ![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/img/6451748b74d3b82c.png)
+
+#### Compare UI controllers and ViewModel
+
+https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/#9
