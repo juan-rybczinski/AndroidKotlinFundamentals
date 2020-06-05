@@ -44,3 +44,10 @@ Initialize the `ViewModel`, using the [`ViewModelProviders.of()`](https://develo
 #### Compare UI controllers and ViewModel
 
 https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/#9
+
+#### Why use viewLifecycleOwner?
+
+> Fragment views get destroyed when a user navigates away from a fragment, even though the fragment itself is not destroyed. This essentially creates two lifecycles, the lifecycle of the fragment, and the lifecycle of the fragment's view. Referring to the fragment's lifecycle instead of the fragment view's lifecycle can cause [subtle bugs](https://www.youtube.com/watch?v=pErTyQpA390&feature=youtu.be&t=349) when updating the fragment's view. Therefore, when setting up observers that affect the fragment's view you should:
+>
+> 1. Set up the observers in `onCreateView()`
+> 2. Pass in `viewLifecycleOwner` to observers
