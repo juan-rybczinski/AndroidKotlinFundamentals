@@ -35,3 +35,8 @@ How `ViewModelProvider` works:
 
 Initialize the `ViewModel`, using the [`ViewModelProviders.of()`](https://developer.android.com/reference/android/arch/lifecycle/ViewModelProviders.html#of) method to create a `ViewModelProvider`.
 
+- The `ViewModel` should never contain references to fragments, activities, or views, because activities, fragments, and views do not survive configuration changes.
+
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/img/86c9c22e398e0642.png)
+
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/img/6451748b74d3b82c.png)
