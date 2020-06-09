@@ -22,6 +22,12 @@ class GameViewModel: ViewModel() {
     val word: LiveData<String>
         get() = _word
 
+    val wordHint = Transformations.map(word) { word ->
+        val randomPosition = (1..word.length).random()
+        "Current word has ${word.length} letters" +
+                "\nThe letter at position $randomPosition is ${word[randomPosition - 1].toUpperCase()}"
+    }
+
     // The current score
     private var _score = MutableLiveData<Int>()
     val score: LiveData<Int>
@@ -32,7 +38,7 @@ class GameViewModel: ViewModel() {
         get() = _eventGameFinished
 
     private val _currentTime = MutableLiveData<Long>()
-    val currentTime: LiveData<Long>
+    private val currentTime: LiveData<Long>
         get() = _currentTime
 
     val currentTimeString = Transformations.map(currentTime) { time ->

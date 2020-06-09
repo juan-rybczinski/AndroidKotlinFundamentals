@@ -77,7 +77,7 @@ https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-mod
 - The Data Binding Library works seamlessly with Android Architecture Components like `ViewModel` and `LiveData`.
 - The layouts in your app can bind to the data in the Architecture Components, which already help you manage the UI controller's lifecycle and notify about changes in the data.
 
-## ViewModel data binding
+### ViewModel data binding
 
 - You can associate a [`ViewModel`](https://developer.android.com/reference/android/arch/lifecycle/ViewModel) with a layout by using data binding.
 - `ViewModel` objects hold the UI data. By passing `ViewModel` objects into the data binding, you can automate some of the communication between the views and the `ViewModel` objects.
@@ -111,7 +111,7 @@ binding.gameViewModel = viewModel
  android:onClick="@{() -> gameViewModel.onSkip()}"
 ```
 
-## Adding LiveData to data binding
+### Adding LiveData to data binding
 
 - [`LiveData`](https://developer.android.com/reference/android/arch/lifecycle/LiveData) objects can be used as a data-binding source to automatically notify the UI about changes in the data.
 - You can bind the view directly to the `LiveData` object in the `ViewModel`. When the `LiveData` in the `ViewModel` changes, the views in the layout can be automatically updated, without the observer methods in the UI controllers.
@@ -126,7 +126,7 @@ android:text="@{gameViewModel.word}"
 binding.lifecycleOwner = this
 ```
 
-## String formatting with data binding
+### String formatting with data binding
 
 - Using data binding, you can format a string resource with placeholders like `%s` for strings and `%d` for integers.
 - To update the `text` attribute of the view, pass in the `LiveData` object as an argument to the formatting string.
@@ -134,3 +134,12 @@ binding.lifecycleOwner = this
 ```xml
  android:text="@{@string/quote_format(gameViewModel.word)}"
 ```
+
+### Transforming LiveData
+
+- Sometimes you want to transform the results of `LiveData`. For example, you might want to format a `Date` string as "hours:mins:seconds," or return the number of items in a list rather than returning the list itself. To perform transformations on `LiveData`, use helper methods in the [`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations.html) class.
+- The [`Transformations.map()`](https://developer.android.com/reference/androidx/lifecycle/Transformations.html#map(androidx.lifecycle.LiveData, androidx.arch.core.util.Function)) method provides an easy way to perform data manipulations on the `LiveData` and return another `LiveData` object. The recommended practice is to put data-formatting logic that uses the `Transformations` class in the `ViewModel` along with the UI data.
+
+### Formatting dates
+
+- The [`DateUtils.formatElapsedTime()`](https://developer.android.com/reference/android/text/format/DateUtils.html#formatElapsedTime(long)) utility method takes a `long` number of milliseconds and formats the number to use a `MM:SS` string format.
