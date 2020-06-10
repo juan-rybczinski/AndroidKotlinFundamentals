@@ -42,3 +42,37 @@ Normally, you would have to provide a [migration](https://medium.com/androiddeve
 ### `<merge>`
 
 The `merge` tag can be used to eliminate redundant layouts when including layouts, and it's a good idea to use it. An example of a redundant layout would be ConstraintLayout > LinearLayout > TextView, where the system might be able to eliminate the LinearLayout. This kind of optimization can simplify the view hierarchy and improve app performance.
+
+### Coroutine
+
+In Kotlin, coroutines are the way to handle long-running tasks elegantly and efficiently. Kotlin coroutines let you convert callback-based code to sequential code. Code written sequentially is typically easier to read and can even use language features such as exceptions. In the end, coroutines and callbacks do the same thing: they wait until a result is available from a long-running task and continue execution.
+
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-coroutines-and-room/img/952b19bd8601a7a5.png)
+
+**Coroutines are asynchronous.**
+
+A coroutine runs independently from the main execution steps of your program. This could be in parallel or on a separate processor. It could also be that while the rest of the app is waiting for input, you sneak in a bit of processing. One of the important aspects of async is that you cannot expect that the result is available, until you explicitly wait for it.
+
+For example, let's say you have a question that requires research, and you ask a colleague to find the answer. They go off and work on it, which is like they're doing the work "asynchronously" and "on a separate thread." You can continue to do other work that doesn't depend on the answer, until your colleague comes back and tells you what the answer is.
+
+**Coroutines are non-blocking.**
+
+*Non-blocking* means that a coroutine does not block the main or UI thread. So with coroutines, users always have the smoothest possible experience, because the UI interaction always has priority.
+
+**Coroutines use suspend functions to make asynchronous code sequential.**
+
+The keyword `suspend` is Kotlin's way of marking a function, or function type, as being available to coroutines. When a coroutine calls a function marked with `suspend`, instead of blocking until the function returns like a normal function call, the coroutine suspends execution until the result is ready. Then the coroutine resumes where it left off, with the result.
+
+While the coroutine is suspended and waiting for a result, it unblocks the thread that it's running on. That way, other functions or coroutines can run.
+
+The `suspend` keyword doesn't specify the thread that the code runs on. A suspend function may run on a background thread, or on the main thread.
+
+> **Tip:** The difference between *blocking* and *suspending* is that if a thread is blocked, no other work happens. If the thread is suspended, other work happens until the result is available.
+
+![img](https://codelabs.developers.google.com/codelabs/kotlin-android-training-coroutines-and-room/img/ce77d98e12909f3e.png)
+
+**Job**: Basically, a job is anything that can be canceled. Every coroutine has a job, and you can use the job to cancel the coroutine. Jobs can be arranged into parent-child hierarchies. Canceling a parent job immediately cancels all the job's children, which is a lot more convenient than canceling each coroutine manually.
+
+**Dispatcher:** The dispatcher sends off coroutines to run on various threads. For example, `Dispatcher.Main` runs tasks on the main thread, and `Dispatcher.IO` offloads blocking I/O tasks to a shared pool of threads.
+
+**Scope:** A coroutine's *scope* defines the context in which the coroutine runs. A scope combines information about a coroutine's job and dispatcher. Scopes keep track of coroutines. When you launch a coroutine, it's "in a scope," which means that you've indicated which scope will keep track of the coroutine.
