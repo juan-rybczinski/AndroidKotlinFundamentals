@@ -97,3 +97,7 @@ suspend fun suspendFunction() {
    }
 }
 ```
+
+> Use a `Transformations` map to create a string from a `LiveData` object every time the object changes.
+
+> [CDATA](http://www.w3.org/TR/REC-xml/#sec-cdata-sect) stands for [*character data*](http://www.w3.org/TR/REC-xml/#dt-chardata). CDATA means that the data in between these strings includes data that could be interpreted as XML markup, but should not be.
