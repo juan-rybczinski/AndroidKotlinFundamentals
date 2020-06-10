@@ -76,3 +76,24 @@ The `suspend` keyword doesn't specify the thread that the code runs on. A suspen
 **Dispatcher:** The dispatcher sends off coroutines to run on various threads. For example, `Dispatcher.Main` runs tasks on the main thread, and `Dispatcher.IO` offloads blocking I/O tasks to a shared pool of threads.
 
 **Scope:** A coroutine's *scope* defines the context in which the coroutine runs. A scope combines information about a coroutine's job and dispatcher. Scopes keep track of coroutines. When you launch a coroutine, it's "in a scope," which means that you've indicated which scope will keep track of the coroutine.
+
+### Coroutine Pattern Example
+
+1. Launch a coroutine that runs on the main or UI thread, because the result affects the UI.
+2. Call a suspend function to do the long-running work, so that you don't block the UI thread while waiting for the result.
+3. The long-running work has nothing to do with the UI. Switch to the I/O context, so that the work can run in a thread pool that's optimized and set aside for these kinds of operations.
+4. Then call the database function to do the work.
+
+```kotlin
+fun someWorkNeedsToBeDone {
+   uiScope.launch {
+        suspendFunction()
+   }
+}
+
+suspend fun suspendFunction() {
+   withContext(Dispatchers.IO) {
+       longrunningWork()
+   }
+}
+```
