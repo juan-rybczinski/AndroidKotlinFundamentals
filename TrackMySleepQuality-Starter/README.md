@@ -101,3 +101,15 @@ suspend fun suspendFunction() {
 > Use a `Transformations` map to create a string from a `LiveData` object every time the object changes.
 
 > [CDATA](http://www.w3.org/TR/REC-xml/#sec-cdata-sect) stands for [*character data*](http://www.w3.org/TR/REC-xml/#dt-chardata). CDATA means that the data in between these strings includes data that could be interpreted as XML markup, but should not be.
+
+> ### Tip: Setting the appearance of a disabled View
+>
+> The `enabled` attribute is not the same as the `visibility` attribute. The `enabled` attribute only determines whether the `View` is enabled, not whether the `View` is visible.
+>
+> The meaning of "enabled" varies by the subclass. A user can edit the text in an enabled `EditText`, but not in a disabled `EditText`. A user can tap an enabled `Button`, but can't tap a disabled one.
+>
+> A default style is applied to a disabled `View` to visually represent that the `View` is not active.
+>
+> However, if the `View` has a `background` attribute or a `textColor` attribute, the values of those attributes are used when the `View` is displayed, *even if the* *`View`* *is disabled.*
+>
+> To define which colors to use for enabled and disabled states, use a [`ColorStateList`](https://developer.android.com/guide/topics/resources/color-list-resource) for the text color and a [`StateListDrawable`](https://developer.android.com/guide/topics/resources/drawable-resource#StateList) for the background color.
