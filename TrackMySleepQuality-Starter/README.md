@@ -113,3 +113,12 @@ suspend fun suspendFunction() {
 > However, if the `View` has a `background` attribute or a `textColor` attribute, the values of those attributes are used when the `View` is displayed, *even if the* *`View`* *is disabled.*
 >
 > To define which colors to use for enabled and disabled states, use a [`ColorStateList`](https://developer.android.com/guide/topics/resources/color-list-resource) for the text color and a [`StateListDrawable`](https://developer.android.com/guide/topics/resources/drawable-resource#StateList) for the background color.
+
+### Pattern
+
+- Create a `ViewModel` and a `ViewModelFactory` and set up a data source.
+- Trigger navigation. To separate concerns, put the click handler in the view model and the navigation in the fragment.
+- Use encapsulation with `LiveData` to track and respond to state changes.
+- Use transformations with `LiveData`.
+- Create a singleton database.
+- Set up coroutines for database operations.
