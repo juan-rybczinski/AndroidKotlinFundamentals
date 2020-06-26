@@ -35,3 +35,13 @@ val adapter = SleepNightAdapter(SleepNightListener { nightId ->
 ```
 
 - Implement the click handler in the view model. For clicks on list items, this commonly triggers navigation to a detail fragment.
+
+### Major steps for adding a header
+
+- Abstract the data in your list by creating a `DataItem` that can hold a header or data.
+- Create a view holder with a layout for the header in the adapter.
+- Update the adapter and its methods to use any kind of `RecyclerView.ViewHolder`.
+- In `onCreateViewHolder()`, return the correct type of view holder for the data item.
+- Update `SleepNightDiffCallback` to work with the `DataItem` class.
+- Create a `addHeaderAndSubmitList()` function that uses coroutines to add the header to the dataset and then calls `submitList()`.
+- Implement `GridLayoutManager.SpanSizeLookup()` to make only the header three spans wide.
