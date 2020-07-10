@@ -25,3 +25,13 @@ Summary
 
 - Call adapters let Retrofit create APIs that return something other than the default `Call` class. Use the `CoroutineCallAdapterFactory` class to replace the `Call` with a coroutine `Deferred`.
 - Use the `await()` method on the `Deferred` object to cause your coroutine code to wait without blocking until the value is ready, and then the value is returned.
+
+## Showing images using Glide
+
+- To simplify the process of managing images, use the [Glide library](https://github.com/bumptech/glide) to download, buffer, decode, and cache images in your app.
+- Glide needs two things to load an image from the internet: the URL of an image, and an `ImageView` object to put the image in. To specify these options, use the `load()` and `into()` methods with Glide.
+- [Binding adapters](https://developer.android.com/topic/libraries/data-binding/binding-adapters) are extension methods that sit between a view and that view's bound data. Binding adapters provide custom behavior when the data changes, for example, to call Glide to load an image from a URL into an `ImageView`.
+- Binding adapters are extension methods annotated with the `@BindingAdapter` annotation.
+- To add options to the Glide request, use the `apply()` method. For example, use `apply()` with `placeholder()` to specify a loading drawable, and use `apply()` with `error()` to specify an error drawable.
+- To produce a grid of images, use a `RecyclerView` with a `GridLayoutManager`.
+- To update the list of properties when it changes, use a binding adapter between the `RecyclerView` and the layout.
