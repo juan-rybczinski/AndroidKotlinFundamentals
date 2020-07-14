@@ -35,3 +35,13 @@ Summary
 - To add options to the Glide request, use the `apply()` method. For example, use `apply()` with `placeholder()` to specify a loading drawable, and use `apply()` with `error()` to specify an error drawable.
 - To produce a grid of images, use a `RecyclerView` with a `GridLayoutManager`.
 - To update the list of properties when it changes, use a binding adapter between the `RecyclerView` and the layout.
+
+## **Binding expressions**
+
+- Use [binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions) in XML layout files to perform simple programmatic operations, such as math or conditional tests, on bound data.
+- To reference classes inside your layout file, use the `<import>` tag inside the `<data>` tag.
+
+## **Web service query options**
+
+- Requests to web services can include optional parameters.
+- To specify query parameters in the request, use the `@Query` annotation in [Retrofit](https://square.github.io/retrofit/).
