@@ -1,6 +1,12 @@
 Summary
 ======================
 
+[Caching](https://searchstorage.techtarget.com/definition/cache) is a process of storing data fetched from a network on a device's storage. Caching lets your app access data when the device is offline, or if your app needs to access the same data again.
+
+## Seperation of concerns
+
+When you design an offline cache, it's a best practice to separate the app's network, domain, and database objects. This strategy is an example of [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns).
+
 ## Several way to store structured data on a device file system
 
 | **Caching technique**                                        | **Uses**                                                     |
