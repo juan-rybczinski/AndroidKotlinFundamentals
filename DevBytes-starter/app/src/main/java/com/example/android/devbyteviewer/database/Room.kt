@@ -32,7 +32,7 @@ interface VideoDao {
 
 @Database(entities = [DatabaseVideo::class], version = 1)
 abstract class VideosDatabase : RoomDatabase() {
-    abstract val videoData: VideoDao
+    abstract val videoDao: VideoDao
 }
 
 private lateinit var INSTANCE: VideosDatabase
