@@ -57,6 +57,13 @@ While `WorkManager` runs background work, it takes care of compatibility issues 
     - [`Result.retry()`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result.html#retry())—work encountered a transient failure and should be retried.
 - [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest.html)
   This class represents a request to run the worker in background. Use `WorkRequest` to configure how and when to run the worker task, with the help of [`Constraints`](https://developer.android.com/reference/androidx/work/Constraints.html) such as device plugged in or Wi-Fi connected.
+  - The [`OneTimeWorkRequest`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest.html) class is for one-off tasks. (A *one-off* task happens only once.)
+  - The [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.html) class is for periodic work, work that repeats at intervals.
+
+> **Note**: The minimum interval for periodic work is 15 minutes. Periodic work can't have an initial delay as one of its constraints.
+>
+> **Best Practice**: The `onCreate()` method runs in the main thread. Performing a long-running operation in `onCreate()` might block the UI thread and cause a delay in loading the app. To avoid this problem, run tasks such as initializing Timber and scheduling `WorkManager` off the main thread, inside a coroutine.
+
 - [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager.html)
   This class schedules and runs your `WorkRequest`. `WorkManager` schedules work requests in a way that spreads out the load on system resources, while honoring the constraints that you specify.
 
