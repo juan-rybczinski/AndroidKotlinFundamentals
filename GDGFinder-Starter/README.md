@@ -49,3 +49,12 @@ android:background="?attr/colorPrimaryDark"
 **Dimensions**
 
 - Use dimension for measurements that apply to your whole app, such as margins, guidelines, or spacing between elements.
+
+**Support for RTL languages**
+
+>**Note:** Some `View` components need further customization to behave properly with RTL. In order to have more precise control over the UI there are 4 different APIs that you can use:
+>
+> - [`android:layoutDirection`](https://developer.android.com/reference/android/util/LayoutDirection) to set the direction of a component's layout.
+> - [`android:textDirection`](https://developer.android.com/reference/android/view/View.html#attr_android:textDirection) to set the direction of a component's text.
+> - [`android:textAlignment`](https://developer.android.com/reference/android/view/View.html#attr_android:textAlignment) to set the alignment of a component's text.
+> - [`getLayoutDirectionFromLocale()`](https://developer.android.com/reference/android/support/v4/text/TextUtilsCompat#getlayoutdirectionfromlocale) is a method to programatically get the locale that specifies direction.
